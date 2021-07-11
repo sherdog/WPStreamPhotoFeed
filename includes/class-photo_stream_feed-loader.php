@@ -21,7 +21,7 @@
  * @subpackage Live_Feed_Panel/includes
  * @author     Mike Sheridan <mike@interactivearmy.com>
  */
-class Live_Feed_Panel_Loader {
+class PhotoStreamFeedLoader {
 
 	/**
 	 * The array of actions registered with WordPress.

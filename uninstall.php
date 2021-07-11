@@ -22,7 +22,7 @@
  * @link       interactivearmy.com
  * @since      1.0.0
  *
- * @package    Live_Feed_Panel
+ * @package    PhotoStreamFeed
  */
 
 // If uninstall not called from WordPress, then exit.

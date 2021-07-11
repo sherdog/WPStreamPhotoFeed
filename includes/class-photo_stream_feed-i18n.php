@@ -24,7 +24,7 @@
  * @subpackage Live_Feed_Panel/includes
  * @author     Mike Sheridan <mike@interactivearmy.com>
  */
-class Live_Feed_Panel_i18n {
+class PhotoStreamFeedi18n {
 
 
 	/**

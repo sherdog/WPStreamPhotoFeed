@@ -9,8 +9,8 @@
  * @link       interactivearmy.com
  * @since      1.0.0
  *
- * @package    Live_Feed_Panel
- * @subpackage Live_Feed_Panel/includes
+ * @package    PhotoStreamFeed
+ * @subpackage PhotoStreamFeed/includes
  */
 
 /**
@@ -23,11 +23,11 @@
  * version of the plugin.
  *
  * @since      1.0.0
- * @package    Live_Feed_Panel
- * @subpackage Live_Feed_Panel/includes
+ * @package    PhotoStreamFeed
+ * @subpackage PhotoStreamFeed/includes
  * @author     Mike Sheridan <mike@interactivearmy.com>
  */
-class Live_Feed_Panel {
+class PhotoStreamFeed {
 
     
 	/**
@@ -36,7 +36,7 @@ class Live_Feed_Panel {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Live_Feed_Panel_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      PhotoStreamFeedLoader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -85,8 +85,8 @@ class Live_Feed_Panel {
 	 */
 	public function __construct() {
 	    
-		if ( defined( 'LIVE_FEED_PANEL_VERSION' ) ) {
-			$this->version = LIVE_FEED_PANEL_VERSION;
+		if ( defined( 'PHOTO_STREAM_FEED_VERSION' ) ) {
+			$this->version = PHOTO_STREAM_FEED_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -109,10 +109,10 @@ class Live_Feed_Panel {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Live_Feed_Panel_Loader. Orchestrates the hooks of the plugin.
-	 * - Live_Feed_Panel_i18n. Defines internationalization functionality.
-	 * - Live_Feed_Panel_Admin. Defines all hooks for the admin area.
-	 * - Live_Feed_Panel_Public. Defines all hooks for the public side of the site.
+	 * - PhotoStreamFeedLoader. Orchestrates the hooks of the plugin.
+	 * - PhotoStreamFeedi18n. Defines internationalization functionality.
+	 * - PhotoStreamFeedAdmin. Defines all hooks for the admin area.
+	 * - PhotoStreamFeedPublic. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -154,7 +154,7 @@ class Live_Feed_Panel {
 		
 		require_once plugin_dir_path( dirname ( __FILE__ ) ) . 'includes/WP_Html_Helper.php';
 
-		$this->loader = new Live_Feed_Panel_Loader();
+		$this->loader = new PhotoStreamFeedLoader();
 	}
 
 	/**
@@ -168,7 +168,7 @@ class Live_Feed_Panel {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Live_Feed_Panel_i18n();
+		$plugin_i18n = new PhotoStreamFeedi18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -183,7 +183,7 @@ class Live_Feed_Panel {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Live_Feed_Panel_Admin( $this, $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new PhotoStreamFeedAdmin( $this, $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -200,7 +200,7 @@ class Live_Feed_Panel {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Live_Feed_Panel_Public( $this, $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new PhotoStreamFeedPublic( $this, $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -231,7 +231,7 @@ class Live_Feed_Panel {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Live_Feed_Panel_Loader    Orchestrates the hooks of the plugin.
+	 * @return    PhotoStreamFeedLoader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
