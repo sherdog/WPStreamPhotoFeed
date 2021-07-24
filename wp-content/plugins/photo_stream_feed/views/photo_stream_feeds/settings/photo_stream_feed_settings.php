@@ -3,7 +3,7 @@ if ( ! class_exists( 'WP_List_Table' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-class PhotoFeedsDisplay extends WP_List_Table {
+class PhotoStreamFeedSettings extends WP_List_Table {
     
     public function __construct() {
     
@@ -77,13 +77,13 @@ class PhotoFeedsDisplay extends WP_List_Table {
     public function prepare_items() {
         
         
+        /*
         $this->_column_headers = array(
             $this->get_columns(),       // columns
             array(),           // hidden
             $this->get_sortable_columns(),  // sortable
         );
        
-        /** Process bulk action */
         $this->process_bulk_action();
         
         $per_page     = $this->get_items_per_page( 'customers_per_page', 5 );
@@ -96,6 +96,7 @@ class PhotoFeedsDisplay extends WP_List_Table {
         ] );
         
         $this->items = self::getLiveFeeds( $per_page, $current_page );
+        */
     }
     
     public static function getLiveFeeds( $perPage = 10, $pageNumber = 1) {
@@ -159,7 +160,7 @@ class PhotoFeedsDisplay extends WP_List_Table {
     }
 }
 
-$liveFeeds = new PhotoFeedsDisplay();
+$settings = new PhotoStreamFeedSettings();
 ?>
 
 <div class="wrap">
@@ -171,8 +172,7 @@ $liveFeeds = new PhotoFeedsDisplay();
 				<div class="meta-box-sortables ui-sortable">
 					<form method="post">
 						<?php
-						$liveFeeds->prepare_items();
-						echo $liveFeeds->display(); 
+						echo $settings->displayForm(); 
 						?>
 					</form>
 				</div>

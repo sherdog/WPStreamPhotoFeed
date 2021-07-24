@@ -4,7 +4,7 @@ $html = new WP_Html_Helper();
 
 
 <div class="wrap">
-<h2>Add A Live Stream</h2>
+<h2>Connect</h2>
 
 	<div id="poststuff">
 		<div id="post-body" class="metabox-holder columns-2">
